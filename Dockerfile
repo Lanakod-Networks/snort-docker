@@ -140,7 +140,22 @@ RUN ln -s /usr/local/lib/libtcmalloc.so.4 /lib/ && \
 #COPY --from=builder ${PREFIX_DIR}/lib64/ ${PREFIX_DIR}/lib64/
 #COPY --from=builder ${PREFIX_DIR}/bin/ /bin/
 
-WORKDIR /
+WORKDIR $HOME
+RUN mkdir ${PREFIX_DIR}/etc/rules && \
+  mkdir ${PREFIX_DIR}/etc/so_rules/ && \
+  mkdir ${PREFIX_DIR}/etc/lists/ && \
+  touch ${PREFIX_DIR}/etc/rules/local.rules && \
+  touch ${PREFIX_DIR}/etc/lists/default.blocklist && \
+  mkdir /var/log/snort
+
+COPY snort3-community-rules.tar ${HOME}/snort3-community-rules.tar
+
+RUN tar -xvzf snort3-community-rules.tar && \
+  cd snort3-community-rules && \
+  cp * ${PREFIX_DIR}/etc/rules/
+
 RUN snort --version
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["snort", "-c", "/usr/local/etc/snort/snort.lua", "-R", "/usr/local/etc/rules/snort3-community.rules", "-i", "wl01", "-s", "65535", "-k", "none"]
+
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
