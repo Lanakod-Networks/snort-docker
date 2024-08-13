@@ -1,0 +1,11 @@
+name: snort
+services:
+    snort:
+        restart: always
+        build:
+            dockerfile: Dockerfile
+            context: ./
+        volumes:
+            - snort:/usr/local/etc/snort
+volumes:
+    snort:
