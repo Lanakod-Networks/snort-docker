@@ -6,6 +6,21 @@ services:
             dockerfile: Dockerfile
             context: ./
         volumes:
-            - snort:/usr/local/etc/snort
-volumes:
-    snort:
+            - ./snort-conf:/usr/local/etc/snort
+            - ./snort-rules.txt:/usr/local/etc/rules/local.rules
+        ports:
+            - 22:22
+        networks:
+            snort_lan:
+    ping:
+        image: willfarrell/ping
+        environment:
+            HOSTNAME: snort
+            TIMEOUT: 10
+        networks:
+            snort_lan:
+networks:
+    snort_lan:
+        driver: bridge
+#volumes:
+#    snort:
