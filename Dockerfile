@@ -7,10 +7,13 @@ ENV HOME=/root
 RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y install \
   wget git cmake make g++ bison flex cppcheck cpputest autoconf automake libtool curl gdb vim build-essential luajit hwloc openssl pkg-config openssh-server \
-  strace perl libio-socket-ssl-perl libcrypt-ssleay-perl ca-certificates libwww-perl python3-pip python3-pcapy python3-dpkt supervisor net-tools iputils-ping python3 \
+  strace perl libio-socket-ssl-perl libcrypt-ssleay-perl ca-certificates libwww-perl supervisor net-tools iputils-ping iproute2 ethtool \
   libdumbnet-dev libdnet-dev libpcap-dev libtirpc-dev libmnl-dev libunwind-dev libpcre3-dev zlib1g-dev libnet1-dev liblzma-dev \
   libssl-dev libhwloc-dev libsqlite3-dev uuid-dev libcmocka-dev libnetfilter-queue-dev autotools-dev libluajit-5.1-dev libfl-dev \
   libpcre3 libpcre3-dbg libyaml-0-2 libyaml-dev zlib1g libcap-ng-dev libcap-ng0 libmagic-dev libnuma-dev
+
+# Some network tweaks
+RUN ip add sh eth0
 
 # Build libdaq
 WORKDIR $HOME
@@ -44,24 +47,14 @@ RUN mkdir ${PREFIX_DIR}/etc/rules && \
   touch ${PREFIX_DIR}/etc/rules/local.rules && \
   touch ${PREFIX_DIR}/etc/lists/default.blocklist && \
   mkdir /var/log/snort
-COPY snort3-community-rules.tar ${HOME}/snort3-community-rules.tar
-RUN tar -xvzf snort3-community-rules.tar && cd snort3-community-rules && cp * ${PREFIX_DIR}/etc/rules/
+COPY snort3-community-rules.tar.gz ${HOME}/snort3-community-rules.tar.gz
+RUN tar -xvzf snort3-community-rules.tar.gz && cd snort3-community-rules && mkdir ${PREFIX_DIR}/etc/rules/snort3-community-rules/ && cp * ${PREFIX_DIR}/etc/rules/snort3-community-rules/
 RUN snort --version
 
 # Install OpenAppID
 WORKDIR $HOME
 COPY snort-openappid.tar.gz ${HOME}/OpenAppId-23020.tar.gz
 RUN tar -xzvf OpenAppId-23020.tar.gz && cp -R odp /usr/local/lib/
-
-RUN pip3 install pygeoip dnif idstools
-#RUN mkdir /usr/local/lookups && cd /usr/local/lookups && \
-#    wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz && \
-#    wget http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz && \
-#    gunzip GeoLiteCity.dat.gz GeoIPASNum.dat.gz
-
-# Install snort-sgent
-WORKDIR /usr/local/src
-RUN wget https://github.com/dnif/snort-agent/archive/0.8.tar.gz && tar -zxvf 0.8.tar.gz && mv snort-agent-* snort-agent
 
 # Set up SSH
 RUN mkdir /var/run/sshd
@@ -74,8 +67,5 @@ EXPOSE 22
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY entrypoint.sh ${HOME}/entrypoint.sh
-#CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
-#ENTRYPOINT ["snort", "-c", "/usr/local/etc/snort/snort.lua", "-R", "/usr/local/etc/rules/snort3-community.rules", "-i", "wl01", "-s", "65535", "-k", "none"]
-#ENTRYPOINT ["tail", "-f", "/dev/null"]
 ENTRYPOINT ["/bin/bash", "/root/entrypoint.sh"]

@@ -21,7 +21,7 @@
 
 -- HOME_NET and EXTERNAL_NET must be set now
 -- setup the network addresses you are protecting
-HOME_NET = '172.20.0.0/24'
+HOME_NET = '192.168.88.0/24'
 
 -- set up the external network addresses.
 -- (leave as "any" in most situations)
@@ -191,8 +191,11 @@ ips =
     -- use include for rules files; be sure to set your path
     -- note that rules files can include other rules files
     -- (see also related path vars at the top of snort_defaults.lua)
-
-    variables = default_variables
+    variables = default_variables,
+    rules = [[ 
+    include $RULE_PATH/snort3-community-rules/snort3-community.rules
+    include $RULE_PATH/local.rules
+    ]]
 }
 
 -- use these to configure additional rule actions
