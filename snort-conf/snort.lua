@@ -21,7 +21,7 @@
 
 -- HOME_NET and EXTERNAL_NET must be set now
 -- setup the network addresses you are protecting
-HOME_NET = '192.168.88.0/24'
+HOME_NET = '[10.0.0.0/8, 192.0.0.0/8, 172.0.0.0/8]'
 
 -- set up the external network addresses.
 -- (leave as "any" in most situations)
@@ -99,7 +99,7 @@ appid =
 {
     -- appid requires this to use appids in rules
     --app_detector_dir = 'directory to load appid detectors from'
-    app_detector_dir = '/usr/local/lib',
+    app_detector_dir = '/usr/local/lib/openappid',
     log_stats = true,
 
 }
@@ -196,6 +196,9 @@ ips =
     include $RULE_PATH/snort3-community-rules/snort3-community.rules
     include $RULE_PATH/local.rules
     ]]
+    
+    --include $RULE_PATH/appid-rules/appid.rules
+    --include $RULE_PATH/feodotracker/feodotracker.rules
 }
 
 -- use these to configure additional rule actions
@@ -255,11 +258,13 @@ rate_filter =
 -- event logging
 -- you can enable with defaults from the command line with -A <alert_type>
 -- uncomment below to set non-default configs
---alert_csv = { }
+alert_csv = {
+  file = true,
+}
 alert_fast = { 
-        file = true, 
-        packet = false,
-        limit = 10,
+  file = true,
+  packet = false,
+  limit = 10,
 }
 --alert_full = { }
 --alert_sfsocket = { }
