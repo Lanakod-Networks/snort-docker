@@ -1,6 +1,0 @@
-08/22-19:30:41.554941 [**] [1:1000001:1] "ICMP connection test" [**] [Priority: 0] [AppID: ICMP] {ICMP} 192.168.57.1 -> 192.168.57.3
-08/22-19:30:42.578554 [**] [1:1000001:1] "ICMP connection test" [**] [Priority: 0] [AppID: ICMP] {ICMP} 192.168.57.1 -> 192.168.57.3
-08/22-19:30:43.602594 [**] [1:1000001:1] "ICMP connection test" [**] [Priority: 0] [AppID: ICMP] {ICMP} 192.168.57.1 -> 192.168.57.3
-08/22-19:30:44.626660 [**] [1:1000001:1] "ICMP connection test" [**] [Priority: 0] [AppID: ICMP] {ICMP} 192.168.57.1 -> 192.168.57.3
-08/22-19:30:45.650654 [**] [1:1000001:1] "ICMP connection test" [**] [Priority: 0] [AppID: ICMP] {ICMP} 192.168.57.1 -> 192.168.57.3
-08/22-19:30:46.674630 [**] [1:1000001:1] "ICMP connection test" [**] [Priority: 0] [AppID: ICMP] {ICMP} 192.168.57.1 -> 192.168.57.3

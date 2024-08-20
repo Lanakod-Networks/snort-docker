@@ -61,6 +61,11 @@ WORKDIR $HOME
 COPY snort-openappid.tar.gz ${HOME}/OpenAppId-23020.tar.gz
 RUN tar -xzvf OpenAppId-23020.tar.gz && mkdir -p /usr/local/lib/openappid && cp -r odp /usr/local/lib/openappid
 
+WORKDIR $HOME
+COPY healthcheck.sh ${HOME}/healthcheck.sh
+RUN chmod +x ${HOME}/healthcheck.sh
+HEALTHCHECK --interval=30s CMD ${HOME}/healthcheck.sh
+
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY entrypoint.sh ${HOME}/entrypoint.sh
 
