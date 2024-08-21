@@ -266,6 +266,10 @@ alert_fast = {
   packet = false,
   limit = 10,
 }
+alert_json = {
+    fields = 'timestamp pkt_num proto pkt_gen pkt_len dir src_addr src_port dst_addr dst_port service rule priority class action b64_data',
+    file = true
+}
 --alert_full = { }
 --alert_sfsocket = { }
 --alert_syslog = { }

@@ -1,0 +1,31 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+- job_name: snort
+  pipeline_stages:
+  - json:
+      expressions:
+        timestamp: timestamp
+        pkt_num: pkt_num
+        proto: proto
+        pkt_gen: pkt_gen
+        pkt_len: pkt_len
+        dir: dir
+        src_ap: src_ap
+        dst_ap: dst_ap
+        rule: rule
+        action: action
+  static_configs:
+  - targets:
+      - localhost
+    labels:
+      job: logs
+      __path__: /var/log/snort/alert_json.txt

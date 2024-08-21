@@ -12,19 +12,49 @@ services:
             - ./snort.rules:/usr/local/etc/rules/local.rules
             - ./logs:/var/log/snort
         network_mode: host
-
-    web_ui:
+    promtail:
+        image: grafana/promtail:1.4.1
         restart: always
-        build:
-            dockerfile: web-ui/Dockerfile
-            context: web-ui
-        ports:
-            -   3000:3000
         volumes:
-            -   ./logs:/var/log/snort
+            - promtail-data:/var/lib/promtail/positions
+            - ./promtail/docker.yml:/etc/promtail/promtail.yml
+            - ./logs:/var/log/snort
+        command:
+            - '-config.file=/etc/promtail/promtail.yml'
         networks:
             snort_lan:
+    loki:
+        hostname: loki
+        image: grafana/loki:latest
+        restart: always
+        environment:
+            TZ: Europe/Moscow
+        ports:
+            - "3100:3100"
+        command: -config.file=/etc/loki/local-config.yaml
+        networks:
+            snort_lan:
+    grafana:
+        image: grafana/grafana-enterprise
+        container_name: grafana
+        hostname: grafana
+        environment:
+            - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
+            - GF_AUTH_ANONYMOUS_ENABLED=true
+            - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+            - TZ=Europe/Moscow
+        restart: always
+        ports:
+        - '3000:3000'
+        networks:
+            snort_lan:
+        volumes:
+            - grafana-storage:/var/lib/grafana
+            - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
 
 networks:
     snort_lan:
         driver: bridge
+volumes:
+    grafana-storage: {}
+    promtail-data: {}
