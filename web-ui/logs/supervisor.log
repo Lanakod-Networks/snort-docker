@@ -14,6 +14,7 @@ Finished snort_defaults.lua:
 	gtp_inspect
 	packets
 	dce_http_proxy
+	alert_full
 	alert_fast
 	alert_csv
 	ips
@@ -81,23 +82,23 @@ Finished ips.rules:
 --------------------------------------------------
 ips policies rule stats
               id  loaded  shared enabled    file
-               0    4239       0    4239    /usr/local/etc/snort/snort.lua
+               0    4238       0    4238    /usr/local/etc/snort/snort.lua
 --------------------------------------------------
 rule counts
-       total rules loaded: 4239
-               text rules: 4239
-            option chains: 4239
-            chain headers: 325
+       total rules loaded: 4238
+               text rules: 4238
+            option chains: 4238
+            chain headers: 318
                  flowbits: 48
      flowbits not checked: 23
 --------------------------------------------------
 port rule counts
              tcp     udp    icmp      ip
-     any     472      58     148      22
+     any     472      58     147      22
      src     170      15       0       0
      dst     775     150       0       0
     both       6      11       0       0
-   total    1423     234     148      22
+   total    1423     234     147      22
 --------------------------------------------------
 service rule counts          to-srv  to-cli
                    dcerpc:       72      20
@@ -150,8 +151,7 @@ search engine (ac_bnfa)
         match list memory: 1.33591
         transition memory: 1.72839
         fast pattern only: 7096
-appid: MaxRss diff: 226524
-appid: p--------------------------------------------------
+appid: MaxRss diff: 227--------------------------------------------------
 o")~   Snort++ 3.3.2.0
 --------------------------------------------------
 Loading /usr/local/etc/snort/snort.lua:
@@ -167,6 +167,7 @@ Finished snort_defaults.lua:
 	gtp_inspect
 	packets
 	dce_http_proxy
+	alert_full
 	alert_fast
 	alert_csv
 	ips
@@ -234,23 +235,23 @@ Finished ips.rules:
 --------------------------------------------------
 ips policies rule stats
               id  loaded  shared enabled    file
-               0    4239       0    4239    /usr/local/etc/snort/snort.lua
+               0    4238       0    4238    /usr/local/etc/snort/snort.lua
 --------------------------------------------------
 rule counts
-       total rules loaded: 4239
-               text rules: 4239
-            option chains: 4239
-            chain headers: 325
+       total rules loaded: 4238
+               text rules: 4238
+            option chains: 4238
+            chain headers: 318
                  flowbits: 48
      flowbits not checked: 23
 --------------------------------------------------
 port rule counts
              tcp     udp    icmp      ip
-     any     472      58     148      22
+     any     472      58     147      22
      src     170      15       0       0
      dst     775     150       0       0
     both       6      11       0       0
-   total    1423     234     148      22
+   total    1423     234     147      22
 --------------------------------------------------
 service rule counts          to-srv  to-cli
                    dcerpc:       72      20
@@ -303,8 +304,7 @@ search engine (ac_bnfa)
         match list memory: 1.33591
         transition memory: 1.72839
         fast pattern only: 7096
-appid: MaxRss diff: 225688
-appid: p--------------------------------------------------
+appid: MaxRss diff: 227--------------------------------------------------
 o")~   Snort++ 3.3.2.0
 --------------------------------------------------
 Loading /usr/local/etc/snort/snort.lua:
@@ -320,6 +320,7 @@ Finished snort_defaults.lua:
 	gtp_inspect
 	packets
 	dce_http_proxy
+	alert_full
 	alert_fast
 	alert_csv
 	ips
@@ -387,23 +388,23 @@ Finished ips.rules:
 --------------------------------------------------
 ips policies rule stats
               id  loaded  shared enabled    file
-               0    4239       0    4239    /usr/local/etc/snort/snort.lua
+               0    4238       0    4238    /usr/local/etc/snort/snort.lua
 --------------------------------------------------
 rule counts
-       total rules loaded: 4239
-               text rules: 4239
-            option chains: 4239
-            chain headers: 325
+       total rules loaded: 4238
+               text rules: 4238
+            option chains: 4238
+            chain headers: 318
                  flowbits: 48
      flowbits not checked: 23
 --------------------------------------------------
 port rule counts
              tcp     udp    icmp      ip
-     any     472      58     148      22
+     any     472      58     147      22
      src     170      15       0       0
      dst     775     150       0       0
     both       6      11       0       0
-   total    1423     234     148      22
+   total    1423     234     147      22
 --------------------------------------------------
 service rule counts          to-srv  to-cli
                    dcerpc:       72      20
@@ -456,8 +457,7 @@ search engine (ac_bnfa)
         match list memory: 1.33591
         transition memory: 1.72839
         fast pattern only: 7096
-appid: MaxRss diff: 228004
-appid: p--------------------------------------------------
+appid: MaxRss diff: 226--------------------------------------------------
 o")~   Snort++ 3.3.2.0
 --------------------------------------------------
 Loading /usr/local/etc/snort/snort.lua:
@@ -473,6 +473,7 @@ Finished snort_defaults.lua:
 	gtp_inspect
 	packets
 	dce_http_proxy
+	alert_full
 	alert_fast
 	alert_csv
 	ips
@@ -540,23 +541,23 @@ Finished ips.rules:
 --------------------------------------------------
 ips policies rule stats
               id  loaded  shared enabled    file
-               0    4239       0    4239    /usr/local/etc/snort/snort.lua
+               0    4238       0    4238    /usr/local/etc/snort/snort.lua
 --------------------------------------------------
 rule counts
-       total rules loaded: 4239
-               text rules: 4239
-            option chains: 4239
-            chain headers: 325
+       total rules loaded: 4238
+               text rules: 4238
+            option chains: 4238
+            chain headers: 318
                  flowbits: 48
      flowbits not checked: 23
 --------------------------------------------------
 port rule counts
              tcp     udp    icmp      ip
-     any     472      58     148      22
+     any     472      58     147      22
      src     170      15       0       0
      dst     775     150       0       0
     both       6      11       0       0
-   total    1423     234     148      22
+   total    1423     234     147      22
 --------------------------------------------------
 service rule counts          to-srv  to-cli
                    dcerpc:       72      20
@@ -609,5 +610,463 @@ search engine (ac_bnfa)
         match list memory: 1.33591
         transition memory: 1.72839
         fast pattern only: 7096
-appid: MaxRss diff: 226732
-appid: p
+appid: MaxRss diff: 226--------------------------------------------------
+o")~   Snort++ 3.3.2.0
+--------------------------------------------------
+Loading /usr/local/etc/snort/snort.lua:
+Loading snort_defaults.lua:
+Finished snort_defaults.lua:
+	ssh
+	host_cache
+	pop
+	so_proxy
+	stream_tcp
+	mms
+	smtp
+	gtp_inspect
+	packets
+	dce_http_proxy
+	alert_full
+	alert_fast
+	alert_csv
+	ips
+	stream_icmp
+	hosts
+	normalizer
+	binder
+	wizard
+	appid
+	js_norm
+	file_id
+	http2_inspect
+	http_inspect
+	stream_udp
+	ftp_data
+	ftp_server
+	search_engine
+	port_scan
+	dce_http_server
+	dce_tcp
+	dce_smb
+	iec104
+	cip
+	telnet
+	ssl
+	sip
+	rpc_decode
+	netflow
+	modbus
+	host_tracker
+	stream_user
+	stream_ip
+	trace
+	back_orifice
+	classifications
+	dnp3
+	active
+	process
+	ftp_client
+	daq
+	decode
+	alerts
+	stream
+	references
+	arp_spoof
+	output
+	network
+	dns
+	dce_udp
+	imap
+	file_policy
+	s7commplus
+	stream_file
+Finished /usr/local/etc/snort/snort.lua:
+Loading file_id.rules_file:
+Loading file_magic.rules:
+Finished file_magic.rules:
+Finished file_id.rules_file:
+Loading ips.rules:
+Loading ../rules/snort3-community-rules/snort3-community.rules:
+Finished ../rules/snort3-community-rules/snort3-community.rules:
+Loading ../rules/local.rules:
+Finished ../rules/local.rules:
+Finished ips.rules:
+--------------------------------------------------
+ips policies rule stats
+              id  loaded  shared enabled    file
+               0    4238       0    4238    /usr/local/etc/snort/snort.lua
+--------------------------------------------------
+rule counts
+       total rules loaded: 4238
+               text rules: 4238
+            option chains: 4238
+            chain headers: 318
+                 flowbits: 48
+     flowbits not checked: 23
+--------------------------------------------------
+port rule counts
+             tcp     udp    icmp      ip
+     any     472      58     147      22
+     src     170      15       0       0
+     dst     775     150       0       0
+    both       6      11       0       0
+   total    1423     234     147      22
+--------------------------------------------------
+service rule counts          to-srv  to-cli
+                   dcerpc:       72      20
+                     dhcp:        2       2
+                      dns:       28       7
+                  file_id:      219     219
+                      ftp:       90       4
+                 ftp-data:        1      96
+                     http:     2084     255
+                    http2:     2084     255
+                    http3:     2084     255
+                     imap:       35     117
+                      irc:        5       2
+                 kerberos:        3       0
+                     ldap:        0       1
+                    mysql:        3       0
+              netbios-dgm:        1       1
+               netbios-ns:        4       3
+              netbios-ssn:       69      17
+                     nntp:        2       0
+                     pop3:       23     117
+                      rdp:        5       0
+                      sip:        5       5
+                     smtp:      129       2
+                     snmp:       18       7
+                     ssdp:        3       0
+                      ssl:       20      42
+                   sunrpc:       68       4
+                   telnet:       12       6
+                     tftp:        1       0
+                     wins:        1       0
+                    total:     7071    1437
+--------------------------------------------------
+fast pattern groups
+                      src: 114
+                      dst: 312
+                      any: 8
+                to_server: 69
+                to_client: 49
+--------------------------------------------------
+search engine (ac_bnfa)
+                instances: 335
+                 patterns: 10790
+            pattern chars: 175259
+               num states: 123288
+         num match states: 10510
+             memory scale: MB
+             total memory: 3.68362
+           pattern memory: 0.578426
+        match list memory: 1.33591
+        transition memory: 1.72839
+        fast pattern only: 7096
+appid: MaxRss diff: 227--------------------------------------------------
+o")~   Snort++ 3.3.2.0
+--------------------------------------------------
+Loading /usr/local/etc/snort/snort.lua:
+Loading snort_defaults.lua:
+Finished snort_defaults.lua:
+	ssh
+	host_cache
+	pop
+	so_proxy
+	stream_tcp
+	mms
+	smtp
+	gtp_inspect
+	packets
+	dce_http_proxy
+	alert_full
+	alert_fast
+	alert_csv
+	ips
+	stream_icmp
+	hosts
+	normalizer
+	binder
+	wizard
+	appid
+	js_norm
+	file_id
+	http2_inspect
+	http_inspect
+	stream_udp
+	ftp_data
+	ftp_server
+	search_engine
+	port_scan
+	dce_http_server
+	dce_tcp
+	dce_smb
+	iec104
+	cip
+	telnet
+	ssl
+	sip
+	rpc_decode
+	netflow
+	modbus
+	host_tracker
+	stream_user
+	stream_ip
+	trace
+	back_orifice
+	classifications
+	dnp3
+	active
+	process
+	ftp_client
+	daq
+	decode
+	alerts
+	stream
+	references
+	arp_spoof
+	output
+	network
+	dns
+	dce_udp
+	imap
+	file_policy
+	s7commplus
+	stream_file
+Finished /usr/local/etc/snort/snort.lua:
+Loading file_id.rules_file:
+Loading file_magic.rules:
+Finished file_magic.rules:
+Finished file_id.rules_file:
+Loading ips.rules:
+Loading ../rules/snort3-community-rules/snort3-community.rules:
+Finished ../rules/snort3-community-rules/snort3-community.rules:
+Loading ../rules/local.rules:
+Finished ../rules/local.rules:
+Finished ips.rules:
+--------------------------------------------------
+ips policies rule stats
+              id  loaded  shared enabled    file
+               0    4238       0    4238    /usr/local/etc/snort/snort.lua
+--------------------------------------------------
+rule counts
+       total rules loaded: 4238
+               text rules: 4238
+            option chains: 4238
+            chain headers: 318
+                 flowbits: 48
+     flowbits not checked: 23
+--------------------------------------------------
+port rule counts
+             tcp     udp    icmp      ip
+     any     472      58     147      22
+     src     170      15       0       0
+     dst     775     150       0       0
+    both       6      11       0       0
+   total    1423     234     147      22
+--------------------------------------------------
+service rule counts          to-srv  to-cli
+                   dcerpc:       72      20
+                     dhcp:        2       2
+                      dns:       28       7
+                  file_id:      219     219
+                      ftp:       90       4
+                 ftp-data:        1      96
+                     http:     2084     255
+                    http2:     2084     255
+                    http3:     2084     255
+                     imap:       35     117
+                      irc:        5       2
+                 kerberos:        3       0
+                     ldap:        0       1
+                    mysql:        3       0
+              netbios-dgm:        1       1
+               netbios-ns:        4       3
+              netbios-ssn:       69      17
+                     nntp:        2       0
+                     pop3:       23     117
+                      rdp:        5       0
+                      sip:        5       5
+                     smtp:      129       2
+                     snmp:       18       7
+                     ssdp:        3       0
+                      ssl:       20      42
+                   sunrpc:       68       4
+                   telnet:       12       6
+                     tftp:        1       0
+                     wins:        1       0
+                    total:     7071    1437
+--------------------------------------------------
+fast pattern groups
+                      src: 114
+                      dst: 312
+                      any: 8
+                to_server: 69
+                to_client: 49
+--------------------------------------------------
+search engine (ac_bnfa)
+                instances: 335
+                 patterns: 10790
+            pattern chars: 175259
+               num states: 123288
+         num match states: 10510
+             memory scale: MB
+             total memory: 3.68362
+           pattern memory: 0.578426
+        match list memory: 1.33591
+        transition memory: 1.72839
+        fast pattern only: 7096
+appid: MaxRss diff: 227--------------------------------------------------
+o")~   Snort++ 3.3.2.0
+--------------------------------------------------
+Loading /usr/local/etc/snort/snort.lua:
+Loading snort_defaults.lua:
+Finished snort_defaults.lua:
+	ssh
+	host_cache
+	pop
+	so_proxy
+	stream_tcp
+	mms
+	smtp
+	gtp_inspect
+	packets
+	dce_http_proxy
+	alert_full
+	alert_fast
+	alert_csv
+	ips
+	stream_icmp
+	hosts
+	normalizer
+	binder
+	wizard
+	appid
+	js_norm
+	file_id
+	http2_inspect
+	http_inspect
+	stream_udp
+	ftp_data
+	ftp_server
+	search_engine
+	port_scan
+	dce_http_server
+	dce_tcp
+	dce_smb
+	iec104
+	cip
+	telnet
+	ssl
+	sip
+	rpc_decode
+	netflow
+	modbus
+	host_tracker
+	stream_user
+	stream_ip
+	trace
+	back_orifice
+	classifications
+	dnp3
+	active
+	process
+	ftp_client
+	daq
+	decode
+	alerts
+	stream
+	references
+	arp_spoof
+	output
+	network
+	dns
+	dce_udp
+	imap
+	file_policy
+	s7commplus
+	stream_file
+Finished /usr/local/etc/snort/snort.lua:
+Loading file_id.rules_file:
+Loading file_magic.rules:
+Finished file_magic.rules:
+Finished file_id.rules_file:
+Loading ips.rules:
+Loading ../rules/snort3-community-rules/snort3-community.rules:
+Finished ../rules/snort3-community-rules/snort3-community.rules:
+Loading ../rules/local.rules:
+Finished ../rules/local.rules:
+Finished ips.rules:
+--------------------------------------------------
+ips policies rule stats
+              id  loaded  shared enabled    file
+               0    4238       0    4238    /usr/local/etc/snort/snort.lua
+--------------------------------------------------
+rule counts
+       total rules loaded: 4238
+               text rules: 4238
+            option chains: 4238
+            chain headers: 318
+                 flowbits: 48
+     flowbits not checked: 23
+--------------------------------------------------
+port rule counts
+             tcp     udp    icmp      ip
+     any     472      58     147      22
+     src     170      15       0       0
+     dst     775     150       0       0
+    both       6      11       0       0
+   total    1423     234     147      22
+--------------------------------------------------
+service rule counts          to-srv  to-cli
+                   dcerpc:       72      20
+                     dhcp:        2       2
+                      dns:       28       7
+                  file_id:      219     219
+                      ftp:       90       4
+                 ftp-data:        1      96
+                     http:     2084     255
+                    http2:     2084     255
+                    http3:     2084     255
+                     imap:       35     117
+                      irc:        5       2
+                 kerberos:        3       0
+                     ldap:        0       1
+                    mysql:        3       0
+              netbios-dgm:        1       1
+               netbios-ns:        4       3
+              netbios-ssn:       69      17
+                     nntp:        2       0
+                     pop3:       23     117
+                      rdp:        5       0
+                      sip:        5       5
+                     smtp:      129       2
+                     snmp:       18       7
+                     ssdp:        3       0
+                      ssl:       20      42
+                   sunrpc:       68       4
+                   telnet:       12       6
+                     tftp:        1       0
+                     wins:        1       0
+                    total:     7071    1437
+--------------------------------------------------
+fast pattern groups
+                      src: 114
+                      dst: 312
+                      any: 8
+                to_server: 69
+                to_client: 49
+--------------------------------------------------
+search engine (ac_bnfa)
+                instances: 335
+                 patterns: 10790
+            pattern chars: 175259
+               num states: 123288
+         num match states: 10510
+             memory scale: MB
+             total memory: 3.68362
+           pattern memory: 0.578426
+        match list memory: 1.33591
+        transition memory: 1.72839
+        fast pattern only: 7096
+appid: MaxRss diff: 229

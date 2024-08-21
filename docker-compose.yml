@@ -11,9 +11,20 @@ services:
             - ./snort-conf:/usr/local/etc/snort
             - ./snort.rules:/usr/local/etc/rules/local.rules
             - ./logs:/var/log/snort
+        network_mode: host
+
+    web_ui:
+        restart: always
+        build:
+            dockerfile: web-ui/Dockerfile
+            context: web-ui
+        ports:
+            -   3000:3000
+        volumes:
+            -   ./logs:/var/log/snort
         networks:
             snort_lan:
-            
+
 networks:
     snort_lan:
         driver: bridge
