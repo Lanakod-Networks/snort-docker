@@ -39,10 +39,10 @@ RUN mkdir ${PREFIX_DIR}/etc/rules && \
   touch ${PREFIX_DIR}/etc/rules/local.rules && \
   touch ${PREFIX_DIR}/etc/lists/default.blocklist && \
   mkdir /var/log/snort
-COPY snort3-community-rules.tar.gz ${HOME}/snort3-community-rules.tar.gz
-COPY feodotracker.tar.gz ${HOME}/feodotracker.tar.gz
-COPY appid-rules.tar.gz ${HOME}/appid-rules.tar.gz
-COPY emerging-rules.tar.gz ${HOME}/emerging-rules.tar.gz
+COPY ./tars/snort3-community-rules.tar.gz ${HOME}/snort3-community-rules.tar.gz
+COPY ./tars/feodotracker.tar.gz ${HOME}/feodotracker.tar.gz
+COPY ./tars/appid-rules.tar.gz ${HOME}/appid-rules.tar.gz
+COPY ./tars/emerging-rules.tar.gz ${HOME}/emerging-rules.tar.gz
 RUN tar -xvzf snort3-community-rules.tar.gz && cd snort3-community-rules && mkdir ${PREFIX_DIR}/etc/rules/snort3-community-rules/ && cp * ${PREFIX_DIR}/etc/rules/snort3-community-rules/
 
 WORKDIR $HOME
@@ -58,15 +58,15 @@ RUN snort --version
 
 # Install OpenAppID
 WORKDIR $HOME
-COPY snort-openappid.tar.gz ${HOME}/OpenAppId-23020.tar.gz
+COPY ./tars/snort-openappid.tar.gz ${HOME}/OpenAppId-23020.tar.gz
 RUN tar -xzvf OpenAppId-23020.tar.gz && mkdir -p /usr/local/lib/openappid && cp -r odp /usr/local/lib/openappid
 
 WORKDIR $HOME
-COPY healthcheck.sh ${HOME}/healthcheck.sh
+COPY ./scripts/healthcheck.sh ${HOME}/healthcheck.sh
 RUN chmod +x ${HOME}/healthcheck.sh
 HEALTHCHECK --interval=30s CMD ${HOME}/healthcheck.sh
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY entrypoint.sh ${HOME}/entrypoint.sh
+COPY ./configs/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY ./scripts/entrypoint.sh ${HOME}/entrypoint.sh
 
 ENTRYPOINT ["/bin/bash", "/root/entrypoint.sh"]
