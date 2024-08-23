@@ -258,14 +258,15 @@ rate_filter =
 -- event logging
 -- you can enable with defaults from the command line with -A <alert_type>
 -- uncomment below to set non-default configs
-alert_csv = {
-  file = true,
-}
-alert_fast = { 
-  file = true,
-  packet = false,
-  limit = 10,
-}
+-- alert_csv = {
+--   fields = 'timestamp pkt_num proto pkt_gen pkt_len dir src_addr src_port dst_addr dst_port service rule priority class action b64_data',
+--   file = true,
+-- }
+-- alert_fast = { 
+--   file = true,
+--   packet = false,
+--   limit = 10,
+-- }
 alert_json = {
     fields = 'timestamp pkt_num proto pkt_gen pkt_len dir src_addr src_port dst_addr dst_port service rule priority class action b64_data',
     file = true
